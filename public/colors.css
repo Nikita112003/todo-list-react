@@ -1,0 +1,10 @@
+:root {
+    --border-color: #bbb;
+    --done-todo: #d3d3d3;
+    --yellow-btn: #ffd700;
+    --yellow-btn-hover: #e6c300;
+    --red-btn: #ff5656;
+    --red-btn-hover: #ff2424;
+    --green-btn: #00db00;
+    --green-btn-hover: #00c200;
+}
