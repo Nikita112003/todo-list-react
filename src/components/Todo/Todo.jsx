@@ -1,9 +1,9 @@
-import styles from '../styles/Todo.module.css';
+import styles from './Todo.module.css';
 import { useDispatch } from 'react-redux';
-import { change, remove, mark, done } from '../slices/todoSlice'
+import { change, remove, mark, done } from '../../slices/todoSlice'
 import { useState } from 'react';
 
-export default ({index, name, description, isMarked, isDone}) => {
+const Todo = ({index, name, description, isMarked, isDone}) => {
     const dispatch = useDispatch();
 
     const [todoName, setTodoName] = useState(name);
@@ -13,14 +13,14 @@ export default ({index, name, description, isMarked, isDone}) => {
 
     const [displayForm, setDisplayForm] = useState(false);
 
-    function showChangeForm() {
+    const showChangeForm = () => {
         setPrevName(todoName);
         setPrevDescription(todoDescription);
 
         setDisplayForm(true);
     }
 
-    function changeTodo(event) {
+    const changeTodo = event => {
         event.preventDefault();
 
         dispatch(change([index, todoName, todoDescription]));
@@ -28,7 +28,7 @@ export default ({index, name, description, isMarked, isDone}) => {
         setDisplayForm(false);
     }
 
-    function cancelChange(event) {
+    const cancelChange  = event => {
         event.preventDefault();
 
         setDisplayForm(false);
@@ -37,7 +37,7 @@ export default ({index, name, description, isMarked, isDone}) => {
         setTodoDescription(prevDescription);
     }
 
-    function removeTodo() {
+    const removeTodo = () => {
         dispatch(remove(index))
     }
 
@@ -57,16 +57,14 @@ export default ({index, name, description, isMarked, isDone}) => {
                     onChange={event => setTodoDescription(event.target.value)} />
                 </div>
                 <div>
-                    <button onClick={event => changeTodo(event)}>ОК</button>
-                    <button onClick={event => cancelChange(event)}>Отмена</button>
+                    <button onClick={changeTodo}>ОК</button>
+                    <button onClick={cancelChange}>Отмена</button>
                 </div>
             </form>
-            
             :
-
             <>
             <div id={`todo-${index}`}>
-                <div className={styles.heading}>
+                <header className={styles.heading}>
                     <h2>{name}</h2>
                     <div>
                         <button title='Отметить как важное' onClick={() => dispatch(mark(index))}>
@@ -76,7 +74,7 @@ export default ({index, name, description, isMarked, isDone}) => {
                             <i className={`${isDone ? styles.done + ' fas' : 'far'} fa-check-circle`}></i>
                         </button>
                     </div>
-                </div>
+                </header>
                 <p>{description}</p>
             </div>
 
@@ -89,3 +87,5 @@ export default ({index, name, description, isMarked, isDone}) => {
         </div>
     )
 }
+
+export default Todo

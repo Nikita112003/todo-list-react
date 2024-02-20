@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import styles from '../styles/App.module.css';
-import CreateTodo from './CreateTodo';
-import Todo from './Todo';
+import styles from './App.module.css';
+import CreateTodo from '../CreateTodo/CreateTodo';
+import Todo from '../Todo/Todo';
 
-export default () => {
+const App = () => {
     const todoList = Array.from(
         Object.values(useSelector((state) => state.todoList.value))
     );
@@ -17,7 +17,7 @@ export default () => {
         }
     });
 
-    function createTodo() {
+    const createTodo = () => {
         let form = document.getElementById('create-todo');
         form.style.display = 'block';
     }
@@ -35,3 +35,5 @@ export default () => {
         </>
     )
 }
+
+export default App

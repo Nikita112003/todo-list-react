@@ -1,17 +1,17 @@
-import todoStyles from '../styles/Todo.module.css';
-import createTodoStyles from '../styles/CreateTodo.module.css';
+import todoStyles from '../Todo/Todo.module.css';
+import createTodoStyles from './CreateTodo.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { create } from '../slices/todoSlice';
+import { create } from '../../slices/todoSlice';
 import { useState } from 'react';
 
-export default () => {
+const CreateTodo = () => {
     const dispatch = useDispatch();
 
     const [todoName, setTodoName] = useState('');
     const [todoDescription, setTodoDescription] = useState('');
     const nextIndex = useSelector((state) => state.todoList.nextIndex)
 
-    function createTodo(event) {
+    const createTodo = event => {
         event.preventDefault();
         
         dispatch(create([nextIndex, todoName, todoDescription]));
@@ -23,7 +23,7 @@ export default () => {
         form.style.display = 'none';
     }
 
-    function cancel(event) {
+    const cancel = event => {
         event.preventDefault();
 
         setTodoName('');
@@ -54,3 +54,5 @@ export default () => {
         </div>
     )
 }
+
+export default CreateTodo
