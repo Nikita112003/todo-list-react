@@ -2,9 +2,11 @@
     padding: 15px;
     border: 1px solid var(--border-color);
     border-radius: 20px;
+    flex: 1 1 0;
 }
 .todoDone {
     color: var(--done-todo);
+    background-color: var(--done-bg);
 
     h2 {
         text-decoration: line-through 3px;
@@ -15,9 +17,6 @@
     align-items: center;
     justify-content: space-between;
 
-    h2 {
-        overflow-wrap: anywhere;
-    }
     div button {
         margin-left: 10px;
         background-color: transparent;
@@ -29,20 +28,6 @@
 }
 .done {
     color: var(--green-btn-hover);
-}
-.form {
-
-    div {
-        display: table-row;
-
-        * {
-            display: table-cell;
-            margin-bottom: 10px;
-        }
-        label {
-            padding-right: 5px;
-        }
-    }
 }
 .changeBtn {
     background-color: var(--yellow-btn);
