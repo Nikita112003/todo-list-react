@@ -1,0 +1,45 @@
+.todo {
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    flex: 1 1 0;
+}
+.todoDone {
+    color: var(--done-todo);
+    background-color: var(--done-bg);
+
+    h2 {
+        text-decoration: line-through 3px;
+    }
+}
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    div button {
+        margin-left: 10px;
+        background-color: transparent;
+        font-size: 24px;
+    }
+}
+.marked {
+    color: var(--yellow-btn-hover);
+}
+.done {
+    color: var(--green-btn-hover);
+}
+.changeBtn {
+    background-color: var(--yellow-btn);
+
+    &:hover {
+        background-color: var(--yellow-btn-hover);
+    }
+}
+.deleteBtn {
+    background-color: var(--red-btn);
+
+    &:hover {
+        background-color: var(--red-btn-hover);
+    }
+}

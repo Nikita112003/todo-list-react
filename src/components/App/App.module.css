@@ -1,0 +1,28 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+h1 {
+    text-align: center;
+}
+button {
+    padding: 10px 15px;
+    border-style: none;
+    border-radius: 10px;
+    &:not(:last-child) {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+}
+.createButton {
+    background-color: var(--green-btn);
+    margin-bottom: 5px;
+
+    &:hover {
+        background-color: var(--green-btn-hover);
+    }
+}
+.todos {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
